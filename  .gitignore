@@ -1,0 +1,41 @@
+# پوشه‌ی node_modules که شامل بسته‌های نصب‌شده است
+node_modules/
+
+# فایل‌ها و پوشه‌های مربوط به لاگ‌ها
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# فایل‌های مربوط به فرآیندها
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# پوشه‌های تولید شده برای تست پوشش کد (Coverage)
+coverage/
+
+# خروجی‌های مربوط به ساخت پروژه (Build)
+dist/
+build/
+
+# فایل‌های محیطی (Environment variables)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# کش‌های npm و yarn
+.npm/
+.yarn/
+.yarn-cache/
+
+# فایل‌های مربوط به ابزارهای IDE
+.vscode/
+.idea/
+
+# فایل‌های سیستمی macOS
+.DS_Store
