@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "lit-html": "^3.2.1",
+    "socket.io": "^4.8.1"
   }
 }

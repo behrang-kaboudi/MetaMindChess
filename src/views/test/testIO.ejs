@@ -1,0 +1,56 @@
+<%- include('../partials/header', { title: 'Home Page' }) %>
+
+<main>
+  <p>Test IO</p>
+  <button class="btn btn-primary">Test Button</button>
+
+  <script>
+    // اطمینان از اجرای کد بعد از بارگذاری کامل DOM
+    document.addEventListener('DOMContentLoaded', function() {
+      // ثبت رویدادهای اتصال و بازاتصال
+      socket.on('connect', function() {
+        console.log('Connected to server.');
+        // در صورت نیاز می‌توانید توابعی مانند getChalenges() را فراخوانی کنید.
+      });
+  
+      socket.on('reconnect', function() {
+        console.log('Reconnected to server.');
+        // در صورت نیاز می‌توانید توابعی مانند getChalenges() را فراخوانی کنید.
+      });
+  
+      // ارسال داده به سرور به عنوان نمونه
+      socketTest1(1);
+  
+      // ثبت یکبار listener برای دریافت رویدادهای سرور
+      registerServerEventListener();
+    });
+  
+    // تابع ارسال رویداد 'test' به سرور
+    function socketTest1(id) {
+      socket.emit('test', 
+        {
+          signal: 'testIO',// نام روتر
+          // fName:'testIO',// نام تابع داخل روتر
+          id: id
+        },
+        function ackCallback(response) {
+          console.log('Server acknowledgment:', response);
+        }
+      );
+    }
+  
+    // تابع ثبت listener برای دریافت رویداد 'testServerToHost' از سرور
+    function registerServerEventListener() {
+      // Listener تنها یکبار ثبت می‌شود؛ در صورت نیاز می‌توانید بررسی کنید که قبلاً ثبت شده باشد
+      socket.on('testServerToHost', function(data) {
+        console.log('Received testServerToHost event:', data);
+        // توابع یا منطق مورد نیاز برای پردازش داده‌های دریافتی از سرور در اینجا قرار گیرد.
+      });
+    }
+  </script>
+</main>
+
+
+
+<%- include('../partials/footer') %>     
+

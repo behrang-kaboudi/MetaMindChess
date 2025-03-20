@@ -1,11 +1,42 @@
-<%- include('partials/header', { title: 'Home Page' }) %>
+
+<%- include('partials/header', { title }) %>
 
 <main>
   <p>Welcome to our homepage! </p>
+  <p><%= message %></p>
   <button class="btn btn-primary">Test Button</button>
+
+<script>
+
+  // socket.emit('test', 
+  //   {
+  //     signal: 'testSignal', // نام تابع مقصد در سرور
+  //     id: 123,              // سایر اطلاعات ارسالی
+  //   },
+  //   function ackCallback(response) { // تابع callback برای دریافت پاسخ از سرور
+  //     console.log('Server response:', response);
+  //   }
+  // );
+
+
+</script>
+<!-- <script type="module" src="/components/myTemplate.js"></script> -->
+<script type="module" >
+import { html, render } from '/modules/lit-html/lit-html.js';
+
+
+
+export const myTemplate = (name) => html`
+  <div>
+    <h1>Hello, ${name}!</h1>
+    <p>This is rendered using lit-html.</p>
+  </div>
+`;
+</script>
+
 </main>
 
 
 
-<%- include('partials/footer') %>
+<%- include('partials/footer') %>     
 
